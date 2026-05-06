@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scene4M</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h3 {
+            text-align: center;
+            color: #34495e;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .tokenizer-grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px; 
+            margin: auto;     
+        }
+        .grid-column .media-item {
+            margin-bottom: 15px;
+        }
+        .grid-column video, .grid-column audio {
+            width: 100%;
+            border-radius: 6px;
+            background-color: #ecf0f1;
+        }
+        .flex-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .flex-container video {
+            flex: 1;
+            max-width: 50%;
+            border-radius: 6px;
+        }
+        .flex-container .text-content {
+            flex: 1;
+        }
+
+         /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .tokenizer-grid-container {
+                grid-template-columns: 1fr;
+            }
+            .flex-container {
+                flex-direction: column;
+            }
+            .flex-container video {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Scene4M: A Multimodal Scene Model</h1>
+<p style="text-align: center; font-size: 1.1em; margin-bottom: 10px;">
+Lara Marinov, Christian Egeland, Anthonin Duval, Kenza Driss
+</p>
+	<p style="text-align: max-width: 800px; margin: 0 auto 40px auto;">
+    		Scene4M is a foundation model designed to understand and generate scenes across multiple modalities, including video, audio, and text. 
+    		It is an extension of the existing <a href="https://4m.epfl.ch/" target="_blank" rel="noopener noreferrer">4M model</a>. More details are in our <a href="report.pdf" target="_blank">full report</a>. This website shows video and audio clips that could not be added in our paper.
+	</p>
+    <section>
+        <h2>Video Tokenizer</h2>
+        <div class="tokenizer-grid-container">
+            <div class="grid-column">
+                <h3>Before</h3>
+                <div class="media-item">
+                    <video controls muted playsinline poster="https://via.placeholder.com/300x200.png?text=Original+Video+1" src="test_dog_barking/original_preprocessed_clip.webm"></video>
+                </div>
+                <div class="media-item">
+                    <video controls muted playsinline poster="https://via.placeholder.com/300x200.png?text=Original+Video+2" src="test_female_speech/original_preprocessed_clip.webm"></video>
+                </div>
+                <div class="media-item">
+                    <video controls muted playsinline poster="https://via.placeholder.com/300x200.png?text=Original+Video+3" src="test_hammer_nails/original_preprocessed_clip.webm"></video>
+                </div>
+            </div>
+            <div class="grid-column">
+                <h3>After</h3>
+                <div class="media-item">
+                    <video controls muted playsinline poster="https://via.placeholder.com/300x200.png?text=Reconstructed+Video+1" src="test_dog_barking/reconstructed_clip.webm"></video>
+                </div>
+                <div class="media-item">
+                    <video controls muted playsinline poster="https://via.placeholder.com/300x200.png?text=Reconstructed+Video+2" src="test_female_speech/reconstructed_clip.webm"></video>
+                </div>
+                <div class="media-item">
+                    <video controls muted playsinline poster="https://via.placeholder.com/300x200.png?text=Reconstructed+Video+3" src="test_hammer_nails/reconstructed_clip.webm"></video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Audio Tokenizer</h2>
+        <div class="tokenizer-grid-container">
+             <div class="grid-column">
+                <h3>Before</h3>
+                <div class="media-item">
+                    <audio controls src="test_dog_barking/original.wav"></audio>
+                </div>
+                <div class="media-item">
+                    <audio controls src="test_female_speech/original.wav"></audio>
+                </div>
+                <div class="media-item">
+                    <audio controls src="test_hammer_nails/original.wav"></audio>
+                </div>
+            </div>
+            <div class="grid-column">
+                <h3>After</h3>
+                <div class="media-item">
+                    <audio controls src="test_dog_barking/detokenized.wav"></audio>
+                </div>
+                <div class="media-item">
+                    <audio controls src="test_female_speech/detokenized.wav"></audio>
+                </div>
+                <div class="media-item">
+                    <audio controls src="test_hammer_nails/detokenized.wav"></audio>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Main Model</h2>
+        <div class="flex-container">
+            <video controls muted playsinline loop poster="https://via.placeholder.com/640x360.png?text=Main+Model+Input" id="main-video" src="dog_barking.mp4"></video>
+            <div class="text-content">
+                <p>Prediction: flipped amid winnie chattanooga parach restorationlingtonalous affilihedagh diapers</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Transfer Evaluation</h2>
+        <div class="flex-container">
+            <video controls muted playsinline loop poster="https://via.placeholder.com/640x360.png?text=Transfer+Evaluation+Input" src="dog_barking.mp4"></video>
+            <div class="text-content">
+                <p>Prediction: the first part of the game is a very simple game, but it 'the art of the game : the last of us part ii the shadow of the deer on the grass the water is so clear the deer were kept in the forest by the lake . a deer in a field the deer were spotted in the field at the end of the day .</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

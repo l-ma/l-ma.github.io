@@ -1,0 +1,36 @@
+Archived i18n (language switcher + translations)
+==================================================
+
+This folder holds the previous client-side translation setup so you can bring it back later.
+
+Files
+-----
+- language.js       — loads translations.json, applies [data-i18n] keys, persists lang in localStorage
+- translations.json — strings for en, ro, de, fr, it
+
+To restore on index.html
+-------------------------
+1. Copy language.js and translations.json from this folder into the site root (same directory as index.html).
+
+2. In index.html <head>, add after <title>…</title>:
+   <script defer src="language.js"></script>
+
+3. In the top bar, add the language links next to the theme toggle, e.g. wrap both in:
+   <div class="top-bar">
+     <div class="language-selector">
+       <a href="#" class="active-language" data-lang="en">EN</a> |
+       <a href="#" data-lang="ro">RO</a> |
+       <a href="#" data-lang="de">DE</a> |
+       <a href="#" data-lang="fr">FR</a> |
+       <a href="#" data-lang="it">IT</a>
+     </div>
+     <button id="toggle-btn" …></button>
+   </div>
+
+4. Add back the CSS for .language-selector (see git history or old backup).
+
+5. Add data-i18n attributes to translatable nodes; keys must match translations.json (e.g. data-i18n="bio1" on the first bio paragraph). Inner HTML for English can stay as fallback; language.js overwrites from JSON when another language is selected.
+
+6. Remove any duplicate click handlers on .language-selector links from the bottom inline script — language.js registers those after translations load.
+
+Optional: clear or set localStorage key "lang" when testing.

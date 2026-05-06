@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comic Strips</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .comic-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .comic-item {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .comic-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* Layout adjustment based on orientation */
+    .comic-item.landscape {
+      grid-column: span 2;
+    }
+
+    .comic-item.portrait {
+      grid-column: span 1;
+    }
+
+    .page-title {
+  text-align: center;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.back-text {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.back-text a {
+  color: #555;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.back-text a:hover {
+  text-decoration: underline;
+}
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #666;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 class="page-title">Comic Strips</h2>
+  <p class="back-text"><a href="index.html">Back to Home</a></p>
+  <div class="comic-gallery">
+    <!-- Repeat this div for each comic -->
+    <div class="comic-item"><img src="comics/1to10.png" alt="Comic Strip" /></div>
+    <div class="comic-item"><img src="comics/dims.png" alt="Comic Strip dims" /></div>
+    <div class="comic-item"><img src="comics/eleprhin.png" alt="Comic Strip eleprhin" /></div>
+    <div class="comic-item"><img src="comics/dance.png" alt="Comic Strip dance" /></div>
+    <div class="comic-item"><img src="comics/baa.png" alt="Comic Strip" /></div>
+    <div class="comic-item"><img src="comics/dancingqueen.png" alt="Comic Strip dancingqueen" /></div>
+    <div class="comic-item"><img src="comics/engratiogirl.png" alt="Comic Strip engratiogirl" /></div>
+    <div class="comic-item"><img src="comics/engratio.png" alt="Comic Strip engratio" /></div>
+    <div class="comic-item"><img src="comics/exercycle.png" alt="Comic Strip exercycle" /></div>
+    <div class="comic-item"><img src="comics/football.png" alt="Comic Strip football" /></div>
+    <div class="comic-item"><img src="comics/galxmom.png" alt="Comic Strip galxmom" /></div>
+    <div class="comic-item"><img src="comics/idkman.png" alt="Comic Strip idkman" /></div>
+    <div class="comic-item"><img src="comics/lang.png" alt="Comic Strip lang" /></div>
+    <!-- <div class="comic-item"><img src="comics/laundry.png" alt="Comic Strip laundry" /></div -->
+    <div class="comic-item"><img src="comics/loveem.png" alt="Comic Strip loveem" /></div>
+    <div class="comic-item"><img src="comics/master.png" alt="Comic Strip master" /></div>
+    <div class="comic-item"><img src="comics/Meme.png" alt="Comic Strip Meme" /></div>
+    <div class="comic-item"><img src="comics/ml.png" alt="Comic Strip ml" /></div>
+    <div class="comic-item"><img src="comics/motto.png" alt="Comic Strip motto" /></div>
+    <div class="comic-item"><img src="comics/nice.png" alt="Comic Strip nice" /></div>
+    <div class="comic-item"><img src="comics/npm-install.jpeg" alt="Comic Strip npm-install" /></div>
+    <div class="comic-item"><img src="comics/panic.png" alt="Comic Strip panic" /></div>
+    <div class="comic-item"><img src="comics/pointers.png" alt="Comic Strip pointers" /></div>
+    <div class="comic-item"><img src="comics/progdads.png" alt="Comic Strip progdads" /></div>
+    <div class="comic-item"><img src="comics/recur.png" alt="Comic Strip recur" /></div>
+    <div class="comic-item"><img src="comics/revol.png" alt="Comic Strip revol" /></div>
+    <div class="comic-item"><img src="comics/snooze.png" alt="Comic Strip snooze" /></div>
+    <div class="comic-item"><img src="comics/squished.png" alt="Comic Strip squished" /></div>
+    <div class="comic-item"><img src="comics/stall.png" alt="Comic Strip stall" /></div>
+    <div class="comic-item"><img src="comics/stars.png" alt="Comic Strip stars" /></div>
+    <div class="comic-item"><img src="comics/sudosanta.png" alt="Comic Strip sudosanta" /></div>
+    <div class="comic-item"><img src="comics/thisweek.png" alt="Comic Strip thisweek" /></div>
+    <div class="comic-item"><img src="comics/triangle.png" alt="Comic Strip triangle" /></div>
+  </div>
+
+  <a class="back-link" href="index.html">← Back to Home</a>
+
+  <script>
+    // Add orientation-based classes to each image
+    window.addEventListener("load", () => {
+      const items = document.querySelectorAll(".comic-item img");
+
+      items.forEach(img => {
+        const parent = img.parentElement;
+        const tempImg = new Image();
+        tempImg.src = img.src;
+
+        tempImg.onload = () => {
+          const aspect = tempImg.width / tempImg.height;
+          if (aspect >= 1.2) {
+            parent.classList.add("landscape");
+          } else {
+            parent.classList.add("portrait");
+          }
+        };
+      });
+    });
+  </script>
+
+</body>
+</html>
+

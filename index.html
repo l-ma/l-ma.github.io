@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lara Marinov</title>
+  <style>
+    :root {
+      --bg-color: #f4f4f9;
+      --text-color: #000;
+      --link-color: #0366d6;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      box-sizing: border-box;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      --bg-color: #0d1b2a;
+      --text-color: #ffffff;
+      --link-color: #58a6ff;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    .greeting {
+      font-size: 0.9rem;
+      color: #777;
+      font-style: italic;
+      font-weight: normal;
+      margin-left: 7px;
+      white-space: nowrap;
+    }
+    
+    .profile-pic {
+      width: 20%;
+      max-width: 200px;
+      min-width: 120px;
+      height: 270px; /* Final visible height */
+      overflow: hidden;
+      object-fit: cover;
+      margin-right: 20px;
+      border: 2px solid #ccc;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .pronunciation {
+      font-style: italic;
+      color: gray;
+      margin-top: -10px;
+      margin-bottom: 15px;
+    }
+
+    .links {
+      margin-top: 15px;
+    }
+
+    .links a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: var(--link-color);
+    }
+
+    section {
+      margin-top: 40px;
+    }
+
+    #toggle-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--text-color);
+}
+#toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .profile-pic {
+        margin-bottom: 20px;
+        margin-right: 0;
+      }
+
+      .about-text {
+        text-align: left;
+      }
+
+      .links {
+        text-align: center;
+      }
+
+      #toggle-btn {
+        position: static;
+        margin-bottom: 20px;
+      }
+    }
+    .top-bar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 16px;
+    }
+
+.pdf-button {
+  display: inline-block;
+  margin-top: 4px; /* reduce spacing */
+  padding: 6px 12px;
+  background-color: rgba(3, 102, 214, 0.15);
+  color: var(--link-color);
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid var(--link-color);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pdf-button:hover {
+  background-color: rgba(3, 102, 214, 0.25);
+  color: var(--text-color);
+}
+
+.paper-divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 30px 0;
+  opacity: 0.6;
+}
+
+.paper-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.paper-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid #aaa;
+}
+
+.paper-text {
+  flex: 1;
+}
+
+.paper-text h4 {
+  margin: 0 0 8px;
+}
+
+.paper-text a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.paper-text a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .paper-entry {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .paper-text {
+    text-align: left;
+  }
+}
+
+  </style>
+</head>
+<body class="dark-mode">
+<div class="top-bar">
+  <button id="toggle-btn" aria-label="Toggle theme">🌞</button>
+</div>
+
+  <div class="container">
+    <img src="pic_cropped.jpg" alt="Your Photo" class="profile-pic">
+    <div class="about-text">
+      <h1>
+	Lara Marinov
+      	<span class="greeting">Hello! Buna! Guten Tag! Bonjour ! Buongiorno! Zdravo! Ahoj!</span>
+      </h1>
+      <p class="pronunciation">/’lɑːɹə m'e:ɹɪnˌɔːv/</p>
+      <p>
+        I graduated in Fall 2025 with my B.S. in Computer Science with concentrations in Software Engineering and Language Technologies from Carnegie Mellon University. I was on an exchange semester at École Polytechnique Fédérale de Lausanne (EPFL) in Spring 2025. I’m passionate about solving real-world problems that involve both programming and human languages. My interests lie at the intersection of NLP and software engineering—where advances in AI can drive meaningful impact through the way we build and interact with software.
+      </p>
+      <p>
+        My research interests have focused on large language models (LLMs) and understanding how different design choices affect their behavior and performance. I’m especially interested in how we can make these models more efficient, interpretable, and aligned with real-world use cases. Outside of research, I’ve also interned as a developer in industry, where I gained solid experience working with large codebases, contributing to production systems, and collaborating across big, cross-functional teams. This combination of research and hands-on engineering has shaped the way I think about building and applying machine learning systems.
+      </p>
+      <div class="links">
+        <a href="https://github.com/l-ma" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/lara-marinov/" target="_blank">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=JrUzLY0AAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <a href="mailto:lmarinov@andrew.cmu.edu">Email</a>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h3>Research</h3>
+    <p>
+My research interests span various topics in NLP, software engineering, and linguistics.
+    </p>
+    <hr class="paper-divider">
+
+<div class="paper-entry">
+  <img src="paper_img.png" alt="Paper thumbnail" class="paper-img">
+  <div class="paper-text">
+    <h4>
+      <a href="https://arxiv.org/pdf/2503.03862" target="_blank">Not-Just-Scaling Laws: Towards a Better Understanding of the Downstream Impact of Language Model Design Decisions</a>
+    </h4>
+    <p><i>Emmy Liu, Amanda Bertsch, Lintang Sutawika, Lindia Tjuatja, Patrick Fernandes, <b>Lara Marinov</b>, Michael Chen, Shreya Singhal, Carolin Lawrence, Aditi Raghunathan, Kiril Gashteovski, Graham Neubig</i>; 2025</p>
+    <a class="pdf-button" href="https://arxiv.org/pdf/2503.03862" target="_blank">PDF</a>
+  </div>
+</div>
+
+<hr class="paper-divider">
+
+  </section>
+
+  <section>
+    <h3>Projects</h3>
+    <p>
+      Here's a selection of projects I've done recently.
+    </p>
+    <hr class="paper-divider">
+
+<div class="paper-entry">
+  <img src="mlbd.png" alt="Poster thumbnail" class="paper-img">
+  <div class="paper-text">
+    <h4><a href="mlbd.png" target="_blank">User Retention Analysis</a></h4>
+    <p>We analyzed behavioral data from GoGymi, a digital study app aimed at middle school students, to identify key early signals of long-term user retention. We focused on three main research questions and used a number of ML models to analyze the data. Check out our poster for more details on our analysis. This project was done as team of three for the course "Machine Learning for Behavioral Data" at EPFL.</p>
+  <a class="pdf-button" href="mlbd.png" target="_blank">Poster</a>
+  </div>
+</div>
+
+<hr class="paper-divider">
+
+<div class="paper-entry">
+  <img src="scene4mpic.png" alt="Paper thumbnail" class="paper-img">
+  <div class="paper-text">
+    <h4><a href="scene4m/report.pdf" target="_blank">Scene4M</a></h4>
+    <p>Scene4M is an extended version of the <a href="https://4m.epfl.ch/" target="_blank">4M</a> multimodal model that combines the current 4M modalities with new video and audio data to provide environment descriptions aimed at helping individuals with impaired vision navigate their surroundings. This project was done as team of four for the course "Communications Project" at EPFL.</p>
+  <a class="pdf-button" href="https://www.andrew.cmu.edu/user/lmarinov/scene4m/" target="_blank">Website</a>
+  <a class="pdf-button" href="scene4m/report.pdf" target="_blank">PDF</a>
+  </div>
+</div>
+
+<hr class="paper-divider">
+
+<div class="paper-entry">
+  <img src="nlp_img.png" alt="Paper thumbnail" class="paper-img">
+  <div class="paper-text">
+    <h4><a href="nlp_report.pdf" target="_blank">Entity Recognition</a></h4>
+    <p>I experimented with multiple different methods of constructing demonstrations and prompts for the OpenAI LLM to try to improve its performance on token classification. I explored utilizing LLMs themselves as auxiliary tools within the overall prompt engineering process.</p>
+    <a class="pdf-button" href="nlp_report.pdf" target="_blank">PDF</a>
+  </div>
+</div>
+
+  </section>
+<hr class="paper-divider">
+  <section>
+    <h3>Personal</h3>
+    <p>I collect a list of my favorite CS comic strips <a href="comics.html">here</a>.</p>
+    <p>These are some of my favorite <a href="ch.html">pictures</a> of Switzerland.</p>
+    <p>Also, I love <a href="https://adambarla.me/">Adam</a> ♥</p>
+  </section>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-btn');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';
+    });
+  </script>
+</body>
+</html>
+
