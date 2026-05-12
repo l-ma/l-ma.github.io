@@ -9,12 +9,14 @@
       --bg-color: #f4f4f9;
       --text-color: #000;
       --link-color: #0366d6;
+      --page-pad-x: clamp(2rem, 17vw, 12rem);
+      --page-pad-y: 20px;
     }
 
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: var(--page-pad-y) var(--page-pad-x);
       background-color: var(--bg-color);
       color: var(--text-color);
       box-sizing: border-box;
@@ -123,8 +125,8 @@
     }
     .top-bar {
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: var(--page-pad-y);
+        right: var(--page-pad-x);
         display: flex;
         align-items: center;
         gap: 12px;
@@ -201,9 +203,9 @@
 
   </style>
 </head>
-<body class="dark-mode">
+<body>
 <div class="top-bar">
-  <button id="toggle-btn" aria-label="Toggle theme">🌞</button>
+  <button id="toggle-btn" aria-label="Toggle theme">🌙</button>
 </div>
 
   <div class="container">
@@ -218,7 +220,7 @@
         I graduated in Fall 2025 with my B.S. in Computer Science with concentrations in Software Engineering and Language Technologies from Carnegie Mellon University. I was on an exchange semester at École Polytechnique Fédérale de Lausanne (EPFL) in Spring 2025. I’m passionate about solving real-world problems that involve both programming and human languages. My interests lie at the intersection of NLP and software engineering—where advances in AI can drive meaningful impact through the way we build and interact with software.
       </p>
       <p>
-        My research interests have focused on large language models (LLMs) and understanding how different design choices affect their behavior and performance. I’m especially interested in how we can make these models more efficient, interpretable, and aligned with real-world use cases. Outside of research, I’ve also interned as a developer in industry, where I gained solid experience working with large codebases, contributing to production systems, and collaborating across big, cross-functional teams. This combination of research and hands-on engineering has shaped the way I think about building and applying machine learning systems.
+        My research interests have focused on large language models (LLMs) and understanding how different design choices affect their behavior and performance. I’m especially interested in how we can make these models more efficient, interpretable, and aligned with real-world use cases. Outside of research, I’ve also interned as a developer in industry, where I gained solid experience working with large codebases, contributing to production systems, and collaborating across big, cross-functional teams. This combination of research and hands-on engineering has shaped the way I think about building and applying AI systems to software engineering and beyond.
       </p>
       <div class="links">
         <a href="https://github.com/l-ma" target="_blank">GitHub</a>
@@ -295,7 +297,7 @@ My research interests span various topics in NLP, software engineering, and ling
   <section>
     <h3>Personal</h3>
     <p>I collect a list of my favorite CS comic strips <a href="comics.html">here</a>.</p>
-    <p>These are some of my favorite <a href="ch.html">pictures</a> of Switzerland.</p>
+    <p>These are some of my favorite <a href="ch.html">pictures</a> from the places I've been.</p>
     <p>Also, I love <a href="https://adambarla.me/">Adam</a> ♥</p>
   </section>
 
