@@ -165,6 +165,44 @@
   margin-bottom: 20px;
 }
 
+.research-section {
+  counter-reset: paper;
+}
+
+.research-section .paper-entry {
+  gap: 12px;
+}
+
+.research-section .paper-entry::before {
+  counter-increment: paper;
+  content: counter(paper) ".";
+  font-weight: 600;
+  min-width: 2ch;
+}
+
+.research-section .pdf-button {
+  display: inline;
+  margin-top: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.research-section .pdf-button:hover {
+  background-color: transparent;
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.paper-links {
+  display: inline-block;
+  margin-top: 3px;
+}
+
 .paper-img {
   width: 120px;
   height: 120px;
@@ -197,6 +235,12 @@
   }
 
   .paper-text {
+    text-align: left;
+  }
+
+  .research-section .paper-entry {
+    flex-direction: row;
+    align-items: flex-start;
     text-align: left;
   }
 }
@@ -242,36 +286,57 @@
     </div>
   </div>
 
-  <section>
+  <section class="research-section">
     <h3>Research</h3>
     <p>
-My research interests span various topics in NLP, software engineering, and linguistics.
+      My research interests span various topics in NLP, software engineering, and linguistics.
     </p>
     <hr class="paper-divider">
 
-<div class="paper-entry">
-  <img src="topo-paper-pic.png" alt="Paper thumbnail" class="paper-img">
-  <div class="paper-text">
-    <h4>
-      <a href="https://arxiv.org/abs/2606.09770" target="_blank">Discovering Functionally Selective Brain Regions with a Deep Topographic Multimodal Model</a>
-    </h4>
-    <p><i>Badr AlKhamissi, Johannes Mehrer, <b>Lara Marinov</b>, Ahmed Abdelaal, Abdulkadir Gokce, Martin Schrimpf</i>; 2026</p>
-    <a class="pdf-button" href="https://arxiv.org/pdf/2606.09770" target="_blank">PDF</a>
-  </div>
-</div>
+    <div class="paper-entry">
+      <!-- <img src="paper-thumbnails/llm-interpreter.png" alt="Paper thumbnail" class="paper-img"> -->
+      <div class="paper-text">
+        <h4>
+          <a href="https://arxiv.org/abs/2609.00579" target="_blank">Predicting Program Exit Code with LLMs and Programming Language Semantics</a>
+        </h4>
+        <b>Lara Marinov</b>, Aditya Thimmaiah, Jayanth Srinivasa, Junyi Jessy Li, and Milos Gligoric<br>
+        <i>International Workshop on Language Models and Programming Languages (LMPL)</i><br>
+        Oakland, USA, October 2026<br>
+        <span class="paper-links"><a class="pdf-button" href="https://arxiv.org/abs/2609.00579" target="_blank">[arXiv]</a> <span class="paper-links"><a class="pdf-button" href="https://arxiv.org/pdf/2609.00579" target="_blank">[pdf]</a> <a class="pdf-button" href="bibtex/MarinovETAL26PrEx.html" target="_blank">[bibtex]</a></span>
+      </div>
+    </div>
 
-<hr class="paper-divider">
+    <!--<hr class="paper-divider">-->
 
-<div class="paper-entry">
-  <img src="paper_img.png" alt="Paper thumbnail" class="paper-img">
-  <div class="paper-text">
-    <h4>
-      <a href="https://arxiv.org/abs/2503.03862" target="_blank">Not-Just-Scaling Laws: Towards a Better Understanding of the Downstream Impact of Language Model Design Decisions</a>
-    </h4>
-    <p><i>Emmy Liu, Amanda Bertsch, Lintang Sutawika, Lindia Tjuatja, Patrick Fernandes, <b>Lara Marinov</b>, Michael Chen, Shreya Singhal, Carolin Lawrence, Aditi Raghunathan, Kiril Gashteovski, Graham Neubig</i>; 2025</p>
-    <a class="pdf-button" href="https://arxiv.org/pdf/2503.03862" target="_blank">PDF</a>
-  </div>
-</div>
+    <div class="paper-entry">
+      <!-- <img src="paper-thumbnails/topo-paper-pic.png" alt="Paper thumbnail" class="paper-img"> -->
+      <div class="paper-text">
+        <h4>
+          <a href="https://arxiv.org/abs/2606.09770" target="_blank">Discovering Functionally Selective Brain Regions with a Deep Topographic Multimodal Model</a>
+        </h4>
+        Badr AlKhamissi, Johannes Mehrer, <b>Lara Marinov</b>, Ahmed Abdelaal, Abdulkadir Gokce, Martin Schrimpf<br>
+        <i>Cognitive Computational Neuroscience (CNN)</i><br>
+        Extended Abstract Accepted as a Spotlight (top 10%)<br>
+        New York City, USA, August 2026<br>
+
+        <span class="paper-links"><a class="pdf-button" href="https://arxiv.org/abs/2606.09770" target="_blank">[arXiv]</a> <span class="paper-links"><a class="pdf-button" href="https://arxiv.org/pdf/2606.09770" target="_blank">[pdf]</a> <a class="pdf-button" href="" target="_blank">[bibtex]</a></span></span>
+      </div>
+    </div>
+
+    <!--<hr class="paper-divider">-->
+
+    <div class="paper-entry">
+      <!-- <img src="paper-thumbnails/paper_img.png" alt="Paper thumbnail" class="paper-img"> -->
+      <div class="paper-text">
+        <h4>
+          <a href="https://arxiv.org/abs/2503.03862" target="_blank">Not-Just-Scaling Laws: Towards a Better Understanding of the Downstream Impact of Language Model Design Decisions</a>
+        </h4>
+        Emmy Liu, Amanda Bertsch, Lintang Sutawika, Lindia Tjuatja, Patrick Fernandes, <b>Lara Marinov</b>, Michael Chen, Shreya Singhal, Carolin Lawrence, Aditi Raghunathan, Kiril Gashteovski, Graham Neubig<br>
+        <i>In Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)</i><br>
+        Suzhou, China, November 2025<br>
+        <span class="paper-links"><a class="pdf-button" href="https://arxiv.org/abs/2503.03862" target="_blank">[arXiv]</a> <span class="paper-links"><a class="pdf-button" href="https://arxiv.org/pdf/2503.03862" target="_blank">[pdf]</a> <a class="pdf-button" href="" target="_blank">[bibtex]</a></span></span>
+      </div>
+    </div>
 
 <hr class="paper-divider">
 
