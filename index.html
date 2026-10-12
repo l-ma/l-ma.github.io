@@ -227,6 +227,35 @@
   text-decoration: underline;
 }
 
+.entry-row {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.news-section .entry-row {
+  gap: 0.5rem;
+}
+
+.news-section .entry-when {
+  flex-basis: 5.5rem;
+}
+
+.entry-when {
+  flex: 0 0 8.5rem;
+  white-space: nowrap;
+  color: #555;
+}
+
+.dark-mode .entry-when {
+  color: #bbb;
+}
+
+.entry-what {
+  flex: 1;
+}
+
 @media (max-width: 768px) {
   .paper-entry {
     flex-direction: column;
@@ -242,6 +271,16 @@
     flex-direction: row;
     align-items: flex-start;
     text-align: left;
+  }
+
+  .entry-row {
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-bottom: 1rem;
+  }
+
+  .entry-when {
+    flex: none;
   }
 }
 
@@ -285,6 +324,14 @@
       </div>
     </div>
   </div>
+
+  <section class="news-section">
+    <h3>News</h3>
+    <div class="entry-row">
+      <div class="entry-when">Oct 2026</div>
+      <div class="entry-what">I attended <a href="https://conf.researchr.org/home/splash-issta-2026" target="_blank">SPLASH/ISSTA 2026</a> in Oakland, presented our work on <a href="https://arxiv.org/abs/2609.00579" target="_blank">PrEx</a> at the <a href="https://conf.researchr.org/home/splash-issta-2026/lmpl-2026" target="_blank">LMPL workshop</a>, participated as a student volunteer, and met a lot of cool people!</div>
+    </div>
+  </section>
 
   <section class="research-section">
     <h3>Research</h3>
@@ -382,6 +429,37 @@
 </div>
 
   </section>
+<hr class="paper-divider">
+
+  <section>
+    <h3>Service</h3>
+    <div class="entry-row">
+      <div class="entry-when">2026</div>
+      <div class="entry-what">SPLASH/ISSTA &mdash; <a href="https://credsverse.com/credentials/19df28e7-ee3e-4b65-9e0b-5fbe25eb6616?preview=1" target="_blank">Student Volunteer</a></div>
+    </div>
+    <div class="entry-row">
+      <div class="entry-when">2023-2025</div>
+      <div class="entry-what">Member of the CS Curriculum Review Committee</div>
+    </div>
+  </section>
+
+<hr class="paper-divider">
+  <section>
+    <h3>Teaching</h3>
+    <div class="entry-row">
+      <div class="entry-when">Fall 2024</div>
+      <div class="entry-what">17-480/780 API Design and Implementation (CMU)</div>
+    </div>
+    <div class="entry-row">
+      <div class="entry-when">Fall, Spring 2024</div>
+      <div class="entry-what">17-313 Foundations of Software Engineering (CMU)</div>
+    </div>
+    <div class="entry-row">
+      <div class="entry-when">Fall 2023</div>
+      <div class="entry-what">17-214/514 Principles of Software Construction (CMU)</div>
+    </div>
+  </section>
+
 <hr class="paper-divider">
   <section>
     <h3>Personal</h3>
