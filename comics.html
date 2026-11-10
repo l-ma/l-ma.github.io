@@ -32,6 +32,17 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      width: 100%;
+      margin: 0;
+      font: inherit;
+      color: inherit;
+      cursor: zoom-in;
+      appearance: none;
+    }
+
+    .comic-item:focus-visible {
+      outline: 2px solid #555;
+      outline-offset: 2px;
     }
 
     .comic-item img {
@@ -84,6 +95,53 @@
     .back-link:hover {
       text-decoration: underline;
     }
+
+    #comic-viewer {
+      border: none;
+      padding: 0;
+      background: transparent;
+      max-width: 94vw;
+      max-height: 94vh;
+    }
+
+    #comic-viewer::backdrop {
+      background: rgba(20, 20, 28, 0.86);
+    }
+
+    .comic-viewer-frame {
+      position: relative;
+    }
+
+    #comic-viewer img {
+      display: block;
+      max-width: 92vw;
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 4px;
+    }
+
+    .comic-viewer-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .comic-viewer-close:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
   </style>
 </head>
 <body>
@@ -92,54 +150,75 @@
   <p class="back-text"><a href="index.html">Back to Home</a></p>
     <div class="comic-gallery">
     <!-- Repeat this div for each comic -->
-    <div class="comic-item"><img src="comics/1to10.png" alt="Comic Strip" /></div>
-    <div class="comic-item"><img src="comics/dims.png" alt="Comic Strip dims" /></div>
-    <div class="comic-item"><img src="comics/eleprhin.png" alt="Comic Strip eleprhin" /></div>
-    <div class="comic-item"><img src="comics/compiling.png" alt="Comic Strip compiling" /></div>
-    <div class="comic-item"><img src="comics/dance.png" alt="Comic Strip dance" /></div>
-    <div class="comic-item"><img src="comics/baa.png" alt="Comic Strip" /></div>
-    <div class="comic-item"><img src="comics/dancingqueen.png" alt="Comic Strip dancingqueen" /></div>
-    <div class="comic-item"><img src="comics/dsstore.png" alt="Comic Strip dsstore" /></div>
-    <div class="comic-item"><img src="comics/engratiogirl.png" alt="Comic Strip engratiogirl" /></div>
-    <div class="comic-item"><img src="comics/engratio.png" alt="Comic Strip engratio" /></div>
-    <div class="comic-item"><img src="comics/exercycle.png" alt="Comic Strip exercycle" /></div>
-    <div class="comic-item"><img src="comics/forgetting.png" alt="Comic Strip forgetting" /></div>
-    <div class="comic-item"><img src="comics/football.png" alt="Comic Strip football" /></div>
-    <div class="comic-item"><img src="comics/galxmom.png" alt="Comic Strip galxmom" /></div>
-    <div class="comic-item"><img src="comics/idkman.png" alt="Comic Strip idkman" /></div>
-    <div class="comic-item"><img src="comics/ignoring.png" alt="Comic Strip ignoring" /></div>
-    <div class="comic-item"><img src="comics/lang.png" alt="Comic Strip lang" /></div>
-    <!-- <div class="comic-item"><img src="comics/laundry.png" alt="Comic Strip laundry" /></div -->
-    <div class="comic-item"><img src="comics/loveem.png" alt="Comic Strip loveem" /></div>
-    <div class="comic-item"><img src="comics/master.png" alt="Comic Strip master" /></div>
-    <div class="comic-item"><img src="comics/ignoring2.png" alt="Comic Strip ignoring2" /></div>
-    <div class="comic-item"><img src="comics/Meme.png" alt="Comic Strip Meme" /></div>
-    <div class="comic-item"><img src="comics/ml.png" alt="Comic Strip ml" /></div>
-    <div class="comic-item"><img src="comics/motto.png" alt="Comic Strip motto" /></div>
-    <div class="comic-item"><img src="comics/negatives.png" alt="Comic Strip negatives" /></div>
-    <div class="comic-item"><img src="comics/nice.png" alt="Comic Strip nice" /></div>
-    <div class="comic-item"><img src="comics/npm-install.jpeg" alt="Comic Strip npm-install" /></div>
-    <div class="comic-item"><img src="comics/panic.png" alt="Comic Strip panic" /></div>
-    <div class="comic-item"><img src="comics/olddays.png" alt="Comic Strip olddays" /></div>
-    <div class="comic-item"><img src="comics/pointers.png" alt="Comic Strip pointers" /></div>
-    <div class="comic-item"><img src="comics/progdads.png" alt="Comic Strip progdads" /></div>
-    <div class="comic-item"><img src="comics/recur.png" alt="Comic Strip recur" /></div>
-    <div class="comic-item"><img src="comics/tailsorheads.png" alt="Comic Strip tailsorheads" /></div>
-    <div class="comic-item"><img src="comics/revol.png" alt="Comic Strip revol" /></div>
-    <div class="comic-item"><img src="comics/snooze.png" alt="Comic Strip snooze" /></div>
-    <div class="comic-item"><img src="comics/squished.png" alt="Comic Strip squished" /></div>
-    <div class="comic-item"><img src="comics/thegrandadventure.png" alt="Comic Strip thegrandadventure" /></div>
-    <div class="comic-item"><img src="comics/stall.png" alt="Comic Strip stall" /></div>
-    <div class="comic-item"><img src="comics/stars.png" alt="Comic Strip stars" /></div>
-    <div class="comic-item"><img src="comics/sudosanta.png" alt="Comic Strip sudosanta" /></div>
-    <div class="comic-item"><img src="comics/thisweek.png" alt="Comic Strip thisweek" /></div>
-    <div class="comic-item"><img src="comics/triangle.png" alt="Comic Strip triangle" /></div>
+    <button type="button" class="comic-item"><img src="comics/1to10.png" alt="Comic Strip" /></button>
+    <button type="button" class="comic-item"><img src="comics/dims.png" alt="Comic Strip dims" /></button>
+    <button type="button" class="comic-item"><img src="comics/eleprhin.png" alt="Comic Strip eleprhin" /></button>
+    <button type="button" class="comic-item"><img src="comics/compiling.png" alt="Comic Strip compiling" /></button>
+    <button type="button" class="comic-item"><img src="comics/dance.png" alt="Comic Strip dance" /></button>
+    <button type="button" class="comic-item"><img src="comics/baa.png" alt="Comic Strip" /></button>
+    <button type="button" class="comic-item"><img src="comics/dancingqueen.png" alt="Comic Strip dancingqueen" /></button>
+    <button type="button" class="comic-item"><img src="comics/dsstore.png" alt="Comic Strip dsstore" /></button>
+    <button type="button" class="comic-item"><img src="comics/engratiogirl.png" alt="Comic Strip engratiogirl" /></button>
+    <button type="button" class="comic-item"><img src="comics/engratio.png" alt="Comic Strip engratio" /></button>
+    <button type="button" class="comic-item"><img src="comics/exercycle.png" alt="Comic Strip exercycle" /></button>
+    <button type="button" class="comic-item"><img src="comics/forgetting.png" alt="Comic Strip forgetting" /></button>
+    <button type="button" class="comic-item"><img src="comics/football.png" alt="Comic Strip football" /></button>
+    <button type="button" class="comic-item"><img src="comics/galxmom.png" alt="Comic Strip galxmom" /></button>
+    <button type="button" class="comic-item"><img src="comics/idkman.png" alt="Comic Strip idkman" /></button>
+    <button type="button" class="comic-item"><img src="comics/ignoring.png" alt="Comic Strip ignoring" /></button>
+    <button type="button" class="comic-item"><img src="comics/lang.png" alt="Comic Strip lang" /></button>
+    <!-- <div class="comic-item"><img src="comics/laundry.png" alt="Comic Strip laundry" /></div> -->
+    <button type="button" class="comic-item"><img src="comics/loveem.png" alt="Comic Strip loveem" /></button>
+    <button type="button" class="comic-item"><img src="comics/master.png" alt="Comic Strip master" /></button>
+    <button type="button" class="comic-item"><img src="comics/ignoring2.png" alt="Comic Strip ignoring2" /></button>
+    <button type="button" class="comic-item"><img src="comics/Meme.png" alt="Comic Strip Meme" /></button>
+    <button type="button" class="comic-item"><img src="comics/ml.png" alt="Comic Strip ml" /></button>
+    <button type="button" class="comic-item"><img src="comics/motto.png" alt="Comic Strip motto" /></button>
+    <button type="button" class="comic-item"><img src="comics/negatives.png" alt="Comic Strip negatives" /></button>
+    <button type="button" class="comic-item"><img src="comics/nice.png" alt="Comic Strip nice" /></button>
+    <button type="button" class="comic-item"><img src="comics/npm-install.jpeg" alt="Comic Strip npm-install" /></button>
+    <button type="button" class="comic-item"><img src="comics/panic.png" alt="Comic Strip panic" /></button>
+    <button type="button" class="comic-item"><img src="comics/olddays.png" alt="Comic Strip olddays" /></button>
+    <button type="button" class="comic-item"><img src="comics/pointers.png" alt="Comic Strip pointers" /></button>
+    <button type="button" class="comic-item"><img src="comics/progdads.png" alt="Comic Strip progdads" /></button>
+    <button type="button" class="comic-item"><img src="comics/recur.png" alt="Comic Strip recur" /></button>
+    <button type="button" class="comic-item"><img src="comics/tailsorheads.png" alt="Comic Strip tailsorheads" /></button>
+    <button type="button" class="comic-item"><img src="comics/revol.png" alt="Comic Strip revol" /></button>
+    <button type="button" class="comic-item"><img src="comics/snooze.png" alt="Comic Strip snooze" /></button>
+    <button type="button" class="comic-item"><img src="comics/squished.png" alt="Comic Strip squished" /></button>
+    <button type="button" class="comic-item"><img src="comics/thegrandadventure.png" alt="Comic Strip thegrandadventure" /></button>
+    <button type="button" class="comic-item"><img src="comics/stall.png" alt="Comic Strip stall" /></button>
+    <button type="button" class="comic-item"><img src="comics/stars.png" alt="Comic Strip stars" /></button>
+    <button type="button" class="comic-item"><img src="comics/sudosanta.png" alt="Comic Strip sudosanta" /></button>
+    <button type="button" class="comic-item"><img src="comics/thisweek.png" alt="Comic Strip thisweek" /></button>
+    <button type="button" class="comic-item"><img src="comics/triangle.png" alt="Comic Strip triangle" /></button>
   </div>
 
   <a class="back-link" href="index.html">← Back to Home</a>
 
+  <dialog id="comic-viewer">
+    <div class="comic-viewer-frame">
+      <button type="button" class="comic-viewer-close" aria-label="Close">&times;</button>
+      <img id="comic-viewer-img" alt="">
+    </div>
+  </dialog>
+
   <script>
-    // Add orientation-based classes to each image
+    const viewer = document.getElementById("comic-viewer");
+    const viewerImg = document.getElementById("comic-viewer-img");
+
+    function openComic(img) {
+      viewerImg.src = img.currentSrc || img.src;
+      viewerImg.alt = img.alt;
+      viewer.showModal();
+    }
+
+    function closeComic() {
+      viewer.close();
+      viewerImg.removeAttribute("src");
+    }
+
+    // Add orientation-based classes to each image and open a larger view on click
     window.addEventListener("load", () => {
       const items = document.querySelectorAll(".comic-item img");
 
@@ -156,7 +235,22 @@
             parent.classList.add("portrait");
           }
         };
+
+        parent.addEventListener("click", () => openComic(img));
       });
+    });
+
+    viewer.querySelector(".comic-viewer-close").addEventListener("click", (event) => {
+      event.stopPropagation();
+      closeComic();
+    });
+
+    viewer.addEventListener("click", (event) => {
+      if (event.target === viewer) closeComic();
+    });
+
+    viewer.addEventListener("close", () => {
+      viewerImg.removeAttribute("src");
     });
   </script>
 
